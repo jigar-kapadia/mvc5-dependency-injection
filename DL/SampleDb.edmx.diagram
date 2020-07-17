@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="657e2708f1cc40a6ae60da57eb752644" Name="Diagram1">
+        <EntityTypeShape EntityType="SampleDbModel.brand" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.category" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.product" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.stock" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.customer" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.order_items" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.order" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.staff" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleDbModel.store" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="SampleDbModel.FK__products__brand___45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__products__catego__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__order_ite__produ__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__stocks__product___5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__stocks__store_id__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__orders__customer__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__order_ite__order__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__orders__staff_id__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__orders__store_id__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__staffs__manager___4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleDbModel.FK__staffs__store_id__4D94879B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DependencyInjection_MVC5.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th width="5%">
+            @Html.DisplayNameFor(model => model.customer_id)
+        </th>
+        <th width="20%">
+            @Html.DisplayNameFor(model => model.first_name)
+        </th>
+        <th width="20%">
+            @Html.DisplayNameFor(model => model.last_name)
+        </th>
+        <th width="20%">
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th width="25%">
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zip_code)
+        </th>*@
+        <th width="10%"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.customer_id)*@
+            @Html.ActionLink(item.customer_id.ToString(), "Details", new {  id=item.customer_id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zip_code)
+        </td>*@
+        <td>
+            @Html.ActionLink("View Orders", "Index", "Order", new { customerId = item.customer_id }, null)
+            
+            @*@Html.ActionLink("Orders", "Edit", new { /* id=item.PrimaryKey */ })*@ 
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>
