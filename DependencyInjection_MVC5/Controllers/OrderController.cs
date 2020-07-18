@@ -2,10 +2,8 @@
 using BL.Interfaces;
 using DependencyInjection_MVC5.Models;
 using DL;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace DependencyInjection_MVC5.Controllers
@@ -14,10 +12,13 @@ namespace DependencyInjection_MVC5.Controllers
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
-        public OrderController(IOrderRepository orderRepository, IMapper mapper)
+        private readonly IOrderItemRepository _orderItemRepository;
+        public OrderController(IOrderRepository orderRepository, IMapper mapper,
+            IOrderItemRepository orderItemRepository)
         {
             _orderRepository = orderRepository;
             _mapper = mapper;
+            _orderItemRepository = orderItemRepository;
         }
         // GET: Order
         public ActionResult Index(int customerId)
@@ -29,7 +30,15 @@ namespace DependencyInjection_MVC5.Controllers
         // GET: Order/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var orderDetails = _mapper.Map<order, Order>(_orderRepository.GetOrdersByOrderId(id));
+            var orderItems = _mapper.Map<List<order_items>, List<OrderItems>>(_orderItemRepository.GetOrderItemsByOrderId(id));
+            var orderViewModel = new OrderViewModel
+            {
+                OrderDetails = orderDetails,
+                Items = orderItems,
+                TotalPrice = orderItems.Sum(x => x.quantity * x.list_price)
+            };
+            return View(orderViewModel);
         }
 
         // GET: Order/Create
@@ -37,6 +46,13 @@ namespace DependencyInjection_MVC5.Controllers
         {
             return View();
         }
+
+        //[Route("OrderDetails")]
+        //[HttpGet]
+        //public ActionResult GetOrderDetails()
+        //{
+        //    return View();
+        //}
 
         // POST: Order/Create
         [HttpPost]

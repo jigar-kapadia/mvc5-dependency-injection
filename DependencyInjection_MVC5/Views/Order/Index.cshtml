@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.order_id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.customer_id)
+            @Html.DisplayNameFor(model => model.customer_name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.order_status)
@@ -23,18 +23,18 @@
         <th>
             @Html.DisplayNameFor(model => model.order_date)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.required_date)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.shipped_date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.store_id)
+            @Html.DisplayNameFor(model => model.store_name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.staff_id)
-        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.staff_name)
+        </th>*@
         <th></th>
     </tr>
 
@@ -44,7 +44,8 @@
             @Html.ActionLink(item.order_id.ToString(), "Details", new {  id=item.order_id })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.customer_id)
+            @*@Html.DisplayFor(modelItem => item.customer_name)*@
+            @Html.ActionLink(item.customer_name, "Details", "Customer", new { id = item.order_id }, null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.order_status)
@@ -52,20 +53,20 @@
         <td>
             @Html.DisplayFor(modelItem => item.order_date)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.required_date)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.shipped_date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.store_id)
+            @Html.DisplayFor(modelItem => item.store_name)
         </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.staff_name)
+        </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.staff_id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
+            @Html.ActionLink("View Order Details", "Details", new { id = item.order_id }) 
             @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
         </td>

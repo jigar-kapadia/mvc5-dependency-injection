@@ -19,7 +19,7 @@ namespace DependencyInjection_MVC5
             // register all your components with the container here
             // it is NOT necessary to register your controllers
 
-            // e.g. container.RegisterType<ITestService, TestService>();
+            // e.g. container.RegisterType<ITestService, TestService>();gist
             //container.RegisterSingleton(typeof(MappingProfiles));
 
             //var config = new MapperConfiguration(ctx =>
@@ -29,10 +29,11 @@ namespace DependencyInjection_MVC5
             //});
             //IMapper mapper = config.CreateMapper();
             //container.RegisterInstance(mapper);
-
+            container.RegisterInstance(new SampleDbEntities());
             container.RegisterInstance(MappingProfiles.ConfigureMapper());
             container.RegisterType<ICustomerRepository, CustomerRepository>();
             container.RegisterType<IOrderRepository, OrderRepository>();
+            container.RegisterType<IOrderItemRepository, OrderItemRepository>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
 

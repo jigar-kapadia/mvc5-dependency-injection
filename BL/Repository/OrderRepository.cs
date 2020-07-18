@@ -10,19 +10,19 @@ namespace BL.Repository
 {
     public class OrderRepository : IOrderRepository
     {
-        private SampleDbEntities dbContext;
-        public OrderRepository()
+        private SampleDbEntities _dbContext;
+        public OrderRepository(SampleDbEntities dbContext)
         {
-            dbContext = new SampleDbEntities();
+            _dbContext = dbContext;
         }
         public List<order> GetOrdersByCustomerId(int customerId)
         {
-            return dbContext.orders.Where(x => x.customer_id == customerId).ToList();
+            return _dbContext.orders.Where(x => x.customer_id == customerId).ToList();
         }
 
         public order GetOrdersByOrderId(int orderId)
         {
-            return dbContext.orders.FirstOrDefault(x => x.order_id == orderId);
+            return _dbContext.orders.FirstOrDefault(x => x.order_id == orderId);
         }
     }
 }

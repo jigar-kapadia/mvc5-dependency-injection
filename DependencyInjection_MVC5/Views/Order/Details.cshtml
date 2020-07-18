@@ -1,0 +1,75 @@
+﻿@model DependencyInjection_MVC5.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetails.order_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetails.order_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetails.order_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetails.order_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetails.order_status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetails.order_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetails.shipped_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetails.shipped_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetails.required_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetails.required_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetails.store_name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetails.store_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDetails.staff_name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderDetails.staff_name)
+        </dd>
+
+    </dl>
+</div>
+
+<h5>Items</h5>
+
+@if(Model.Items != null && Model.Items.Count > 0)
+{
+    @Html.Partial("_OrderItems", Model.Items)
+}
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

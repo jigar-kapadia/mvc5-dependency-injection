@@ -10,19 +10,19 @@ namespace BL.Repository
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private SampleDbEntities dbContext;
-        public CustomerRepository()
+        private readonly SampleDbEntities _dbContext;
+        public CustomerRepository(SampleDbEntities dbContext)
         {
-            dbContext = new SampleDbEntities();
+            _dbContext = dbContext;
         }
         public customer GetCustomerById(int id)
         {
-            return dbContext.customers.Where(x => x.customer_id == id).FirstOrDefault();
+            return _dbContext.customers.Where(x => x.customer_id == id).FirstOrDefault();
         }
 
         public List<customer> GetCustomers()
         {
-            return dbContext.customers.ToList();
+            return _dbContext.customers.ToList();
         }
     }
 }
